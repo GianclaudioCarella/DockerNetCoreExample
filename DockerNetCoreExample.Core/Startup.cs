@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DockerNetCoreExample.Business.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -14,8 +15,11 @@ namespace DockerNetCoreExample
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IHostingEnvironment _environment;
+
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
+            _environment = env;
             Configuration = configuration;
         }
 
@@ -31,8 +35,25 @@ namespace DockerNetCoreExample
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // SERVICES
+            services.AddTransient<QuoteService, QuoteService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            if (_environment.IsDevelopment())
+            {             // Register the Swagger generator, defining 1 or more Swagger documents
+                services.AddSwaggerGen(options =>
+                {
+                    options.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
+                    {
+                        Title = "Docker NetCore Example",
+                        Version = "v1",
+                        Description = "API Documentation",
+                    });
+                });
+            }
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +73,23 @@ namespace DockerNetCoreExample
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            if (env.IsDevelopment())
+            {
+                #region SWAGGER CONFIGURATION
+
+                // Enable middleware to serve generated Swagger as a JSON endpoint.
+                app.UseSwagger();
+
+                // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+                // specifying the Swagger JSON endpoint.
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "DockerNetCoreExample");
+                });
+
+                #endregion  SWAGGER CONFIGURATION
+            }
 
             app.UseMvc(routes =>
             {
