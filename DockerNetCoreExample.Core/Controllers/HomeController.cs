@@ -5,11 +5,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DockerNetCoreExample.Models;
+using DockerNetCoreExample.Business.Services;
 
 namespace DockerNetCoreExample.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly QuoteService _quoteService;
+
+        public HomeController(QuoteService quoteService)
+        {
+            _quoteService = quoteService;   
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -18,6 +27,12 @@ namespace DockerNetCoreExample.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult Quotes()
+        {
+            var teste = _quoteService.GetRandomQuote();
+            return View(teste);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -21,7 +21,13 @@ namespace DockerNetCoreExample.Business.Services
 
         public Quote GetRandomQuote()
         {
-            return new Quote("What you do today is important because you are exchanging a day of your life for it.", "Unknown");
+            var quote = new Quote()
+            {
+                Sentence = "What you do today is important because you are exchanging a day of your life for it.",
+                Author = "Unknown"
+            };
+
+            return quote;
         }
     }
 }
