@@ -31,7 +31,7 @@ namespace DockerNetCoreExample.Controllers
 
         public IActionResult Quotes()
         {
-            var teste = _quoteService.GetRandomQuote();
+            var teste = _quoteService.Get();
             return View(teste);
         }
 

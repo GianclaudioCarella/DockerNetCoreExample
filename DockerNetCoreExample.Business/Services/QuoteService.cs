@@ -1,33 +1,37 @@
 ﻿using DockerNetCoreExample.Business.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DockerNetCoreExample.Business.Services
 {
     public class QuoteService
     {
-        private readonly List<Quote> _quotes;
+        private readonly ApiContext _context;
 
-        public QuoteService()
+        public QuoteService(ApiContext context)
         {
-            _quotes = new List<Quote>();
+            _context = context;
         }
 
-        public List<Quote> GetQuotes()
+        public List<Quote> Get()
         {
-            return _quotes;
+            return _context.Quotes.ToList();
+
         }
 
-        public Quote GetRandomQuote()
+        public void Add(Quote quote)
         {
-            var quote = new Quote()
-            {
-                Sentence = "What you do today is important because you are exchanging a day of your life for it.",
-                Author = "Unknown"
-            };
+            _context.Quotes.Add(quote);
+            _context.SaveChanges();
+        }
 
-            return quote;
+        public void AddRange(List<Quote> quotes)
+        {
+            _context.AddRange(quotes);
+            _context.SaveChanges();
         }
     }
 }
