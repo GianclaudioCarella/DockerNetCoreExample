@@ -1,0 +1,9 @@
+C:\Users\gcarella\Desktop\repos\project\DockerNetCoreExample\DockerNetCoreExample.Business\bin\Debug\netcoreapp2.2\DockerNetCoreExample.Business.deps.json
+C:\Users\gcarella\Desktop\repos\project\DockerNetCoreExample\DockerNetCoreExample.Business\bin\Debug\netcoreapp2.2\DockerNetCoreExample.Business.dll
+C:\Users\gcarella\Desktop\repos\project\DockerNetCoreExample\DockerNetCoreExample.Business\bin\Debug\netcoreapp2.2\DockerNetCoreExample.Business.pdb
+C:\Users\gcarella\Desktop\repos\project\DockerNetCoreExample\DockerNetCoreExample.Business\obj\Debug\netcoreapp2.2\DockerNetCoreExample.Business.csprojAssemblyReference.cache
+C:\Users\gcarella\Desktop\repos\project\DockerNetCoreExample\DockerNetCoreExample.Business\obj\Debug\netcoreapp2.2\DockerNetCoreExample.Business.csproj.CoreCompileInputs.cache
+C:\Users\gcarella\Desktop\repos\project\DockerNetCoreExample\DockerNetCoreExample.Business\obj\Debug\netcoreapp2.2\DockerNetCoreExample.Business.AssemblyInfoInputs.cache
+C:\Users\gcarella\Desktop\repos\project\DockerNetCoreExample\DockerNetCoreExample.Business\obj\Debug\netcoreapp2.2\DockerNetCoreExample.Business.AssemblyInfo.cs
+C:\Users\gcarella\Desktop\repos\project\DockerNetCoreExample\DockerNetCoreExample.Business\obj\Debug\netcoreapp2.2\DockerNetCoreExample.Business.dll
+C:\Users\gcarella\Desktop\repos\project\DockerNetCoreExample\DockerNetCoreExample.Business\obj\Debug\netcoreapp2.2\DockerNetCoreExample.Business.pdb
